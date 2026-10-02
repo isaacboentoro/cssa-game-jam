@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://l5ao6xue3ul0"]
+
+[ext_resource type="Script" uid="uid://foyfni8g8p0b" path="res://game.gd" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://ix3c38h4e6xy" path="res://scenes/main.tscn" id="2_yqjtg"]
+
+[node name="Game" type="Control" unique_id=1544672224]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uwrxv")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=230829252]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 2
+
+[node name="LeftViewportContainer" type="SubViewportContainer" parent="HBoxContainer" unique_id=351631030]
+layout_mode = 2
+size_flags_horizontal = 3
+stretch = true
+
+[node name="LeftSubViewport" type="SubViewport" parent="HBoxContainer/LeftViewportContainer" unique_id=292961282]
+unique_name_in_owner = true
+handle_input_locally = false
+audio_listener_enable_2d = true
+size = Vector2i(575, 648)
+render_target_update_mode = 4
+
+[node name="main" parent="HBoxContainer/LeftViewportContainer/LeftSubViewport" unique_id=1713370119 instance=ExtResource("2_yqjtg")]
+unique_name_in_owner = true
+
+[node name="LeftCamera" type="Camera2D" parent="HBoxContainer/LeftViewportContainer/LeftSubViewport" unique_id=1424854339]
+unique_name_in_owner = true
+position = Vector2(-539, -67)
+position_smoothing_enabled = true
+
+[node name="RightViewportContainer" type="SubViewportContainer" parent="HBoxContainer" unique_id=1030912534]
+layout_mode = 2
+size_flags_horizontal = 3
+stretch = true
+
+[node name="RightSubViewport" type="SubViewport" parent="HBoxContainer/RightViewportContainer" unique_id=60726112]
+unique_name_in_owner = true
+handle_input_locally = false
+size = Vector2i(575, 648)
+render_target_update_mode = 4
+
+[node name="RightCamera" type="Camera2D" parent="HBoxContainer/RightViewportContainer/RightSubViewport" unique_id=1674427329]
+unique_name_in_owner = true
+position = Vector2(36, -67)
+position_smoothing_enabled = true
