@@ -8,12 +8,12 @@ extends Control
 	{
 		sub_viewport = %LeftSubViewport,
 		camera = %LeftCamera,
-		player = %main/level/player1,
+		player = %main/Level/player1,
 	},
 	{
 		sub_viewport = %RightSubViewport,
 		camera = %RightCamera,
-		player = %main/level/player2,
+		player = %main/Level/player2,
 	},
 ]
 

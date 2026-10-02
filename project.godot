@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="CSSA Game Jam"
-run/main_scene="uid://ix3c38h4e6xy"
+run/main_scene="uid://l5ao6xue3ul0"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 run/size/viewport_width=400

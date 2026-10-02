@@ -19,7 +19,6 @@ func _physics_process(_delta: float) -> void:
 
 func process_movement() -> void:
 	var direction := Input.get_vector(action_left, action_right, action_up, action_down)
-
 	if direction != Vector2.ZERO:
 		velocity = direction * SPEED
 		last_direction = direction
