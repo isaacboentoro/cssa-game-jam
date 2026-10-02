@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://l5ao6xue3ul0"]
 
-[ext_resource type="Script" uid="uid://foyfni8g8p0b" path="res://game.gd" id="1_uwrxv"]
+[ext_resource type="Script" uid="uid://foyfni8g8p0b" path="res://scripts/game.gd" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://ix3c38h4e6xy" path="res://scenes/main.tscn" id="2_yqjtg"]
 
 [node name="Game" type="Control" unique_id=1544672224]
