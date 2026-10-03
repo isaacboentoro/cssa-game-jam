@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://bhf0wsdwhvgr8" path="res://scripts/hp_counter.gd" id="4_hpctr"]
 [ext_resource type="Texture2D" uid="uid://cnquk8l0hw2by" path="res://assets/hud-elements/QEUO-Buttons.png" id="4_p57ef"]
 [ext_resource type="PackedScene" uid="uid://x45j7fj0np8q" path="res://scripts/roulette_table_overlay.tscn" id="5_rlt8e"]
+[ext_resource type="Script" uid="uid://bp6e7tjn2trsd" path="res://scripts/drain_label.gd" id="6_drain"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y22wa"]
 atlas = ExtResource("4_p57ef")
@@ -31,6 +32,21 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_uwrxv")
+
+[node name="DrainLabel" type="Label" parent="." unique_id=-1265485744]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -80.0
+offset_top = 4.0
+offset_right = 80.0
+offset_bottom = 28.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 20
+text = "Drain: 1 hp/s"
+horizontal_alignment = 1
+script = ExtResource("6_drain")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=230829252]
 layout_mode = 1
