@@ -2,8 +2,10 @@ extends Node
 
 signal state_changed(new_state)
 signal hands_updated
-signal round_ended(result:String, payout:int)
+signal round_ended(result:String, payout:float)
 signal table_toggled(opened_by: String)
+
+const BET_PERCENT := 0.1 # fraction of current hp wagered each round
 
 var opened_by := ""
 
@@ -13,28 +15,34 @@ var state := State.BETTING
 var deck := Deck.new(6)
 var player_hand: Array = []
 var dealer_hand: Array = []
-var chips := 1000
-var bet := 0
+var bet := 0.0
 
 func toggle_table(player_id: String) -> void:
 	if opened_by == "":
 		opened_by = player_id
+		_reset_round()
 	elif opened_by == player_id:
 		opened_by = ""
 	else:
 		return
 	table_toggled.emit(opened_by)
-	
+
+func _reset_round() -> void:
+	player_hand = []
+	dealer_hand = []
+	bet = 0.0
+	_set_state(State.BETTING)
+	hands_updated.emit()
+
 
 func _set_state(s: State) -> void:
 	state = s
 	state_changed.emit(s)
-	
-func place_bet(amount:int) -> void:
-	if state != State.BETTING or amount <= 0 or amount > chips:
+
+func place_bet() -> void:
+	if state != State.BETTING or opened_by == "":
 		return
-	bet = amount
-	amount -= chips
+	bet = PlayerStats.consume_percent(opened_by, BET_PERCENT)
 	_deal_initial()
 	
 func _deal_initial() -> void:
@@ -89,16 +97,16 @@ func _resolve() -> void:
 	var dealer_blackjack := deck.is_blackjack(dealer_hand)
 	
 	var result := ""
-	var payout := 0
-	
+	var payout := 0.0
+
 	if player_value > 21:
 		result = "bust"
-	if dealer_blackjack and player_blackjack:
+	elif dealer_blackjack and player_blackjack:
 		result = "push"
 		payout = bet #(draw)
 	elif player_blackjack:
 		result = "blackjack"
-		payout = bet + int(bet * 1.5)
+		payout = bet + bet * 1.5
 	elif dealer_blackjack:
 		result = "dealer blackjack"
 	elif dealer_value > 21 or player_value > dealer_value:
@@ -109,8 +117,8 @@ func _resolve() -> void:
 		payout = bet #(draw)
 	else:
 		result = "dealer wins"
-		
-	chips += payout
+
+	PlayerStats.add_hp(opened_by, payout)
 	round_ended.emit(result, payout)
 	
 

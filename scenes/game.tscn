@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" uid="uid://foyfni8g8p0b" path="res://scripts/game.gd" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://ix3c38h4e6xy" path="res://scenes/main.tscn" id="2_yqjtg"]
-[ext_resource type="PackedScene" uid="uid://cul7aae1ybwkw" path="res://scripts/table_overlay.tscn" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://cul7aae1ybwkw" path="res://scenes/table_overlay.tscn" id="3_lnu2h"]
+[ext_resource type="Script" uid="uid://bhf0wsdwhvgr8" path="res://scripts/hp_counter.gd" id="4_hpctr"]
 
 [node name="Game" type="Control" unique_id=1544672224]
 layout_mode = 3
@@ -45,6 +46,12 @@ position_smoothing_enabled = true
 [node name="LeftTableOverlay" parent="HBoxContainer/LeftViewportContainer" unique_id=822942819 instance=ExtResource("3_lnu2h")]
 layout_mode = 2
 
+[node name="LeftHpLabel" type="Label" parent="HBoxContainer/LeftViewportContainer" unique_id=1945502881]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "HP: 100"
+script = ExtResource("4_hpctr")
+
 [node name="RightViewportContainer" type="SubViewportContainer" parent="HBoxContainer" unique_id=1030912534]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -65,3 +72,10 @@ position_smoothing_enabled = true
 layout_mode = 2
 player_id = "p2"
 action_name = "p2_action1"
+
+[node name="RightHpLabel" type="Label" parent="HBoxContainer/RightViewportContainer" unique_id=1945502882]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "HP: 100"
+script = ExtResource("4_hpctr")
+player_id = "p2"

@@ -19,6 +19,7 @@ run/size/viewport_width=400
 [autoload]
 
 Blackjack="*uid://cjglii7apywf"
+PlayerStats="*res://scripts/player_stats.gd"
 
 [debug]
 
