@@ -41,8 +41,6 @@ func _ready() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if Roulette.opened_by != player_id:
-		if event.is_action_pressed(_action2):
-			Roulette.toggle_table(player_id)
 		return
 
 	if Roulette.state != Roulette.State.BETTING:
