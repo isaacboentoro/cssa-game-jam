@@ -20,6 +20,7 @@ run/size/viewport_width=400
 
 Blackjack="*uid://cjglii7apywf"
 PlayerStats="*res://scripts/player_stats.gd"
+Roulette="*res://scripts/roulette.gd"
 
 [debug]
 
