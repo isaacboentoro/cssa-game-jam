@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://foyfni8g8p0b" path="res://scripts/game.gd" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://ix3c38h4e6xy" path="res://scenes/main.tscn" id="2_yqjtg"]
-[ext_resource type="PackedScene" uid="uid://cul7aae1ybwkw" path="res://scripts/table_overlay.tscn" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://cul7aae1ybwkw" path="res://scenes/table_overlay.tscn" id="3_lnu2h"]
 
 [node name="Game" type="Control" unique_id=1544672224]
 layout_mode = 3

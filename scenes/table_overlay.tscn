@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bqk7pnfibstub" path="res://scripts/table_ui.gd" id="1_ymaxm"]
 
-[node name="TableOverlay" type="Control" unique_id=822942819]
+[node name="BlackjackTableOverlay" type="Control" unique_id=822942819]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0

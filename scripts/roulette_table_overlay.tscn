@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://x45j7fj0np8q"]
+
+[node name="RouletteTableOverlay" type="Control" unique_id=1036071629]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=688575103]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RouletteBox" type="VBoxContainer" parent="." unique_id=1761877010]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Wheel" type="VBoxContainer" parent="RouletteBox" unique_id=1448081384]
+layout_mode = 2
+
+[node name="InfoArea" type="HBoxContainer" parent="RouletteBox" unique_id=1362759249]
+layout_mode = 2
+
+[node name="Controls" type="VBoxContainer" parent="RouletteBox" unique_id=3471745]
+layout_mode = 2

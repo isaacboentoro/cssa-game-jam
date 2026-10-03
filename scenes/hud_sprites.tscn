@@ -416,7 +416,7 @@ animations = [{
 [node name="JACKPOT" type="AnimatedSprite2D" parent="." unique_id=2012998072]
 position = Vector2(101, -44)
 sprite_frames = SubResource("SpriteFrames_eokrn")
-frame_progress = 0.3015482
+frame_progress = 0.6831426
 speed_scale = 5.0
 
 [node name="LOSS" type="AnimatedSprite2D" parent="." unique_id=1858050984]
@@ -428,7 +428,7 @@ speed_scale = 2.5
 [node name="Button" type="AnimatedSprite2D" parent="." unique_id=1654185926]
 position = Vector2(39, -20)
 sprite_frames = SubResource("SpriteFrames_nc7ed")
-animation = &"UThumbGrey"
+animation = &"ECircGrey"
 
 [node name="PlusMinus" type="AnimatedSprite2D" parent="." unique_id=1202337549]
 position = Vector2(62, 12)
