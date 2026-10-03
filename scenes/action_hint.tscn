@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dt5mb3upvde1w"]
+
+[ext_resource type="Script" uid="uid://cou54vd1uln2m" path="res://scripts/action_hint.gd" id="1_y22wa"]
+
+[node name="ActionHint" type="HBoxContainer" unique_id=1177727225]
+script = ExtResource("1_y22wa")
+
+[node name="Icon" type="TextureRect" parent="." unique_id=2075742295]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="." unique_id=1867834042]
+layout_mode = 2

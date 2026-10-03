@@ -1,6 +1,8 @@
 extends Control
 
 @export var player_id := "p1"
+@export var action1_icon: Texture2D
+@export var action2_icon: Texture2D
 
 const SPIN_DURATION := 1.2
 const SPIN_TICK := 0.08
@@ -10,7 +12,8 @@ const SPIN_TICK := 0.08
 @onready var hp_label: Label = $RouletteBox/InfoArea/HpLabel
 @onready var bet_label: Label = $RouletteBox/InfoArea/BetLabel
 @onready var result_label: Label = $RouletteBox/InfoArea/ResultLabel
-@onready var hint_label: Label = $RouletteBox/InfoArea/HintLabel
+@onready var action_hint_1: HBoxContainer = $RouletteBox/InfoArea/ActionHint1
+@onready var action_hint_2: HBoxContainer = $RouletteBox/InfoArea/ActionHint2
 
 @onready var red_button: Button = $RouletteBox/Controls/OutsideBets/RedButton
 @onready var black_button: Button = $RouletteBox/Controls/OutsideBets/BlackButton
@@ -24,6 +27,8 @@ func _ready() -> void:
 	felt.visible = false
 	_action1 = player_id + "_action1"
 	_action2 = player_id + "_action2"
+	if action1_icon: action_hint_1.icon = action1_icon
+	if action2_icon: action_hint_2.icon = action2_icon
 
 	_bet_buttons = [red_button, black_button]
 
@@ -63,9 +68,11 @@ func _on_state_changed(state) -> void:
 	if betting:
 		result_label.text = ""
 		spin_label.text = "—"
-		hint_label.text = "Bet Red / Bet Black"
+		action_hint_1.set_text("Bet Red")
+		action_hint_2.set_text("Bet Black")
 	else:
-		hint_label.text = ""
+		action_hint_1.set_text("")
+		action_hint_2.set_text("")
 
 ## Placeholder spin animation: cycles the label through random numbers until it
 ## lands on the predetermined result, then tells Roulette it's safe to pay out.

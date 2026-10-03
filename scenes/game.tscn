@@ -4,7 +4,24 @@
 [ext_resource type="PackedScene" uid="uid://ix3c38h4e6xy" path="res://scenes/main.tscn" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://cul7aae1ybwkw" path="res://scenes/table_overlay.tscn" id="3_lnu2h"]
 [ext_resource type="Script" uid="uid://bhf0wsdwhvgr8" path="res://scripts/hp_counter.gd" id="4_hpctr"]
-[ext_resource type="PackedScene" path="res://scripts/roulette_table_overlay.tscn" id="5_rlt8e"]
+[ext_resource type="Texture2D" uid="uid://cnquk8l0hw2by" path="res://assets/hud-elements/QEUO-Buttons.png" id="4_p57ef"]
+[ext_resource type="PackedScene" uid="uid://x45j7fj0np8q" path="res://scripts/roulette_table_overlay.tscn" id="5_rlt8e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y22wa"]
+atlas = ExtResource("4_p57ef")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i0o6m"]
+atlas = ExtResource("4_p57ef")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gee14"]
+atlas = ExtResource("4_p57ef")
+region = Rect2(0, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vtaks"]
+atlas = ExtResource("4_p57ef")
+region = Rect2(0, 96, 16, 16)
 
 [node name="Game" type="Control" unique_id=1544672224]
 layout_mode = 3
@@ -46,6 +63,8 @@ position_smoothing_enabled = true
 
 [node name="LeftTableOverlay" parent="HBoxContainer/LeftViewportContainer" unique_id=822942819 instance=ExtResource("3_lnu2h")]
 layout_mode = 2
+action1_icon = SubResource("AtlasTexture_y22wa")
+action2_icon = SubResource("AtlasTexture_i0o6m")
 
 [node name="LeftHpLabel" type="Label" parent="HBoxContainer/LeftViewportContainer" unique_id=1945502881]
 layout_mode = 2
@@ -55,6 +74,8 @@ script = ExtResource("4_hpctr")
 
 [node name="LeftRouletteOverlay" parent="HBoxContainer/LeftViewportContainer" unique_id=1945502883 instance=ExtResource("5_rlt8e")]
 layout_mode = 2
+action1_icon = SubResource("AtlasTexture_y22wa")
+action2_icon = SubResource("AtlasTexture_i0o6m")
 
 [node name="RightViewportContainer" type="SubViewportContainer" parent="HBoxContainer" unique_id=1030912534]
 layout_mode = 2
@@ -75,6 +96,8 @@ position_smoothing_enabled = true
 [node name="RightTableOverlay" parent="HBoxContainer/RightViewportContainer" unique_id=1399436252 instance=ExtResource("3_lnu2h")]
 layout_mode = 2
 player_id = "p2"
+action1_icon = SubResource("AtlasTexture_gee14")
+action2_icon = SubResource("AtlasTexture_vtaks")
 
 [node name="RightHpLabel" type="Label" parent="HBoxContainer/RightViewportContainer" unique_id=1945502882]
 layout_mode = 2
@@ -86,3 +109,5 @@ player_id = "p2"
 [node name="RightRouletteOverlay" parent="HBoxContainer/RightViewportContainer" unique_id=1945502884 instance=ExtResource("5_rlt8e")]
 layout_mode = 2
 player_id = "p2"
+action1_icon = SubResource("AtlasTexture_gee14")
+action2_icon = SubResource("AtlasTexture_vtaks")

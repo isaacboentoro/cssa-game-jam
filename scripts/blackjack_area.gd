@@ -15,4 +15,4 @@ func _unhandled_input(event: InputEvent) -> void:
 			continue # once open, table_ui.gd owns action1/action2 for this player
 		var action : String = player_id + "_action1"
 		if event.is_action_pressed(action):
-			Blackjack.toggle_table(player_id)
+			Blackjack.call_deferred("toggle_table", player_id)

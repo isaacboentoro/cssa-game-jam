@@ -10,10 +10,14 @@ extends Control
 @onready var hp_label: Label = $TableBox/InfoArea/ChipsLabel
 @onready var bet_label: Label = $TableBox/InfoArea/BetLabel
 @onready var result_label: Label = $TableBox/InfoArea/ResultLabel
-@onready var hint_label: Label = $TableBox/InfoArea/HintLabel
+@onready var action_hint_1: HBoxContainer = $TableBox/InfoArea/ActionHint1
+@onready var action_hint_2: HBoxContainer = $TableBox/InfoArea/ActionHint2
 @onready var deal_button: Button = $TableBox/Controls/DealButton
 @onready var hit_button: Button = $TableBox/Controls/HitButton
 @onready var stand_button: Button = $TableBox/Controls/StandButton
+
+@export var action1_icon: Texture2D
+@export var action2_icon: Texture2D
 
 var _action1 := ""
 var _action2 := ""
@@ -25,6 +29,8 @@ func _ready() -> void:
 	felt.visible = false
 	_action1 = player_id + "_action1"
 	_action2 = player_id + "_action2"
+	if action1_icon: action_hint_1.icon = action1_icon
+	if action2_icon: action_hint_2.icon = action2_icon
 
 	Blackjack.table_toggled.connect(_on_table_toggled)
 	Blackjack.state_changed.connect(_on_state_changed)
@@ -97,11 +103,14 @@ func _on_state_changed(state) -> void:
 	stand_button.disabled = not player_turn
 	if betting:
 		result_label.text = ""
-		hint_label.text = "Deal / Leave"
+		action_hint_1.set_text("Deal")
+		action_hint_2.set_text("Leave")
 	elif player_turn:
-		hint_label.text = "Hit / Stand"
+		action_hint_1.set_text("Hit")
+		action_hint_2.set_text("Stand")
 	else:
-		hint_label.text = ""
+		action_hint_1.set_text("")
+		action_hint_2.set_text("")
 
 func _on_round_ended(result: String, payout: float) -> void:
 	result_label.text = "%s (payout %d)" % [result, round(payout)]

@@ -1,6 +1,25 @@
 [gd_scene format=3 uid="uid://cul7aae1ybwkw"]
 
 [ext_resource type="Script" uid="uid://bqk7pnfibstub" path="res://scripts/table_ui.gd" id="1_ymaxm"]
+[ext_resource type="PackedScene" uid="uid://dt5mb3upvde1w" path="res://scenes/action_hint.tscn" id="2_fwmog"]
+[ext_resource type="Texture2D" uid="uid://cnquk8l0hw2by" path="res://assets/hud-elements/QEUO-Buttons.png" id="3_qh5w0"]
+[ext_resource type="Texture2D" uid="uid://4x00ntd4xu60" path="res://assets/hud-elements/playing-buttons.png" id="4_qh5w0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ksya"]
+atlas = ExtResource("3_qh5w0")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_48d6w"]
+atlas = ExtResource("3_qh5w0")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fwmog"]
+atlas = ExtResource("4_qh5w0")
+region = Rect2(0, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5xx7v"]
+atlas = ExtResource("4_qh5w0")
+region = Rect2(0, 16, 32, 16)
 
 [node name="BlackjackTableOverlay" type="Control" unique_id=822942819]
 layout_mode = 3
@@ -41,6 +60,14 @@ layout_mode = 2
 [node name="InfoArea" type="HBoxContainer" parent="TableBox" unique_id=1616478881]
 layout_mode = 2
 
+[node name="ActionHint1" parent="TableBox/InfoArea" unique_id=1177727225 instance=ExtResource("2_fwmog")]
+layout_mode = 2
+icon = SubResource("AtlasTexture_7ksya")
+
+[node name="ActionHint2" parent="TableBox/InfoArea" unique_id=377017699 instance=ExtResource("2_fwmog")]
+layout_mode = 2
+icon = SubResource("AtlasTexture_48d6w")
+
 [node name="ChipsLabel" type="Label" parent="TableBox/InfoArea" unique_id=1202300381]
 layout_mode = 2
 
@@ -48,9 +75,6 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="ResultLabel" type="Label" parent="TableBox/InfoArea" unique_id=899288633]
-layout_mode = 2
-
-[node name="HintLabel" type="Label" parent="TableBox/InfoArea" unique_id=899288634]
 layout_mode = 2
 
 [node name="PlayerArea" type="VBoxContainer" parent="TableBox" unique_id=1377825894]
@@ -72,7 +96,9 @@ text = "Deal (10% HP)"
 [node name="HitButton" type="Button" parent="TableBox/Controls" unique_id=255136199]
 layout_mode = 2
 text = "Hit"
+icon = SubResource("AtlasTexture_fwmog")
 
 [node name="StandButton" type="Button" parent="TableBox/Controls" unique_id=663547664]
 layout_mode = 2
 text = "Stand"
+icon = SubResource("AtlasTexture_5xx7v")

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://x45j7fj0np8q"]
 
 [ext_resource type="Script" path="res://scripts/roulette_ui.gd" id="1_rulet"]
+[ext_resource type="PackedScene" uid="uid://dt5mb3upvde1w" path="res://scenes/action_hint.tscn" id="2_ahnt"]
 
 [node name="RouletteTableOverlay" type="Control" unique_id=1036071629]
 layout_mode = 3
@@ -50,7 +51,10 @@ layout_mode = 2
 [node name="ResultLabel" type="Label" parent="RouletteBox/InfoArea" unique_id=1362759252]
 layout_mode = 2
 
-[node name="HintLabel" type="Label" parent="RouletteBox/InfoArea" unique_id=1362759253]
+[node name="ActionHint1" parent="RouletteBox/InfoArea" unique_id=1362759254 instance=ExtResource("2_ahnt")]
+layout_mode = 2
+
+[node name="ActionHint2" parent="RouletteBox/InfoArea" unique_id=1362759255 instance=ExtResource("2_ahnt")]
 layout_mode = 2
 
 [node name="Controls" type="VBoxContainer" parent="RouletteBox" unique_id=3471745]
