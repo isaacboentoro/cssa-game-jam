@@ -50,6 +50,9 @@ layout_mode = 2
 [node name="ResultLabel" type="Label" parent="RouletteBox/InfoArea" unique_id=1362759252]
 layout_mode = 2
 
+[node name="HintLabel" type="Label" parent="RouletteBox/InfoArea" unique_id=1362759253]
+layout_mode = 2
+
 [node name="Controls" type="VBoxContainer" parent="RouletteBox" unique_id=3471745]
 layout_mode = 2
 
@@ -63,30 +66,3 @@ text = "Red"
 [node name="BlackButton" type="Button" parent="RouletteBox/Controls/OutsideBets" unique_id=3471748]
 layout_mode = 2
 text = "Black"
-
-[node name="OddButton" type="Button" parent="RouletteBox/Controls/OutsideBets" unique_id=3471749]
-layout_mode = 2
-text = "Odd"
-
-[node name="EvenButton" type="Button" parent="RouletteBox/Controls/OutsideBets" unique_id=3471750]
-layout_mode = 2
-text = "Even"
-
-[node name="LowButton" type="Button" parent="RouletteBox/Controls/OutsideBets" unique_id=3471751]
-layout_mode = 2
-text = "1-18"
-
-[node name="HighButton" type="Button" parent="RouletteBox/Controls/OutsideBets" unique_id=3471752]
-layout_mode = 2
-text = "19-36"
-
-[node name="StraightBets" type="HBoxContainer" parent="RouletteBox/Controls" unique_id=3471753]
-layout_mode = 2
-
-[node name="StraightNumberInput" type="SpinBox" parent="RouletteBox/Controls/StraightBets" unique_id=3471754]
-layout_mode = 2
-max_value = 36.0
-
-[node name="StraightButton" type="Button" parent="RouletteBox/Controls/StraightBets" unique_id=3471755]
-layout_mode = 2
-text = "Bet Straight Up (35:1)"

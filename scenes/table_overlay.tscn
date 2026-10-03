@@ -50,6 +50,9 @@ layout_mode = 2
 [node name="ResultLabel" type="Label" parent="TableBox/InfoArea" unique_id=899288633]
 layout_mode = 2
 
+[node name="HintLabel" type="Label" parent="TableBox/InfoArea" unique_id=899288634]
+layout_mode = 2
+
 [node name="PlayerArea" type="VBoxContainer" parent="TableBox" unique_id=1377825894]
 layout_mode = 2
 

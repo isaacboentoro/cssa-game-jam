@@ -13,4 +13,4 @@ func _unhandled_input(event: InputEvent) -> void:
 	for player_id in players_in_range:
 		var action : String = player_id + "_action1"
 		if event.is_action_pressed(action):
-			$Blackjack.toggle_table(player_id)
+			Blackjack.toggle_table(player_id)

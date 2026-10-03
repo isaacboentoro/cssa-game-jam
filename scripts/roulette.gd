@@ -8,6 +8,7 @@ signal table_toggled(opened_by: String)
 
 const BET_PERCENT := 0.1 # fraction of current hp wagered each round
 const RED_NUMBERS := [1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36]
+const RESULT_DISPLAY_SECONDS := 1.5
 
 enum State { BETTING, SPINNING, ROUND_OVER }
 enum BetType { RED, BLACK, ODD, EVEN, LOW, HIGH, STRAIGHT }
@@ -75,6 +76,14 @@ func finish_spin() -> void:
 	_set_state(State.ROUND_OVER)
 	var outcome := "win" if payout > 0 else "lose"
 	round_ended.emit("%s (%d %s)" % [outcome, last_number, last_color], payout)
+	_schedule_auto_leave()
+
+func _schedule_auto_leave() -> void:
+	var closing_for := opened_by
+	await get_tree().create_timer(RESULT_DISPLAY_SECONDS).timeout
+	if opened_by == closing_for and state == State.ROUND_OVER:
+		opened_by = ""
+		table_toggled.emit("")
 
 func _calculate_payout() -> float:
 	var win := false

@@ -173,6 +173,7 @@ tile_set = SubResource("TileSet_jyhfs")
 [node name="player2" parent="Level" unique_id=1085990600 instance=ExtResource("1_o5qli")]
 unique_name_in_owner = true
 position = Vector2(576, 217)
+player_id = "p2"
 action_left = "p2_left"
 action_right = "p2_right"
 action_up = "p2_up"
@@ -207,3 +208,6 @@ offset_right = -2.1000004
 offset_bottom = -3.0571427
 grow_horizontal = 2
 grow_vertical = 2
+
+[connection signal="body_entered" from="TableZone" to="TableZone" method="_on_body_entered"]
+[connection signal="body_exited" from="TableZone" to="TableZone" method="_on_body_exited"]

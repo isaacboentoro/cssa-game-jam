@@ -1,7 +1,6 @@
 extends Control
 
 @export var player_id := "p1"
-@export var action_name := "p1_action1"
 
 @onready var felt: ColorRect = $Felt
 @onready var dealer_cards: HBoxContainer = $TableBox/DealerArea/DealerCards
@@ -11,15 +10,21 @@ extends Control
 @onready var hp_label: Label = $TableBox/InfoArea/ChipsLabel
 @onready var bet_label: Label = $TableBox/InfoArea/BetLabel
 @onready var result_label: Label = $TableBox/InfoArea/ResultLabel
+@onready var hint_label: Label = $TableBox/InfoArea/HintLabel
 @onready var deal_button: Button = $TableBox/Controls/DealButton
 @onready var hit_button: Button = $TableBox/Controls/HitButton
 @onready var stand_button: Button = $TableBox/Controls/StandButton
+
+var _action1 := ""
+var _action2 := ""
 
 const SUIT_SYMBOL := {"hearts": "♥", "diamonds": "♦", "clubs": "♣", "spades": "♠"}
 
 func _ready() -> void:
 	visible = false
 	felt.visible = false
+	_action1 = player_id + "_action1"
+	_action2 = player_id + "_action2"
 
 	Blackjack.table_toggled.connect(_on_table_toggled)
 	Blackjack.state_changed.connect(_on_state_changed)
@@ -35,8 +40,20 @@ func _ready() -> void:
 	_refresh_chips()
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed(action_name):
-		Blackjack.toggle_table(player_id)
+	if Blackjack.opened_by != player_id:
+		return
+
+	match Blackjack.state:
+		Blackjack.State.BETTING:
+			if event.is_action_pressed(_action1):
+				Blackjack.place_bet()
+			elif event.is_action_pressed(_action2):
+				Blackjack.toggle_table(player_id)
+		Blackjack.State.PLAYER_TURN:
+			if event.is_action_pressed(_action1):
+				Blackjack.hit()
+			elif event.is_action_pressed(_action2):
+				Blackjack.stand()
 
 func _on_table_toggled(opened_by: String) -> void:
 	var show_table := opened_by == player_id
@@ -80,6 +97,11 @@ func _on_state_changed(state) -> void:
 	stand_button.disabled = not player_turn
 	if betting:
 		result_label.text = ""
+		hint_label.text = "Deal / Leave"
+	elif player_turn:
+		hint_label.text = "Hit / Stand"
+	else:
+		hint_label.text = ""
 
 func _on_round_ended(result: String, payout: float) -> void:
 	result_label.text = "%s (payout %d)" % [result, round(payout)]
