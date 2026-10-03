@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://cqry0qjvyeulf"]
+
+[ext_resource type="Texture2D" uid="uid://bjuvjm1x5f68v" path="res://assets/Tilemap/carpet.png" id="1_uaub3"]
+[ext_resource type="Texture2D" uid="uid://dlgp8tj611x1x" path="res://assets/Tilemap/rainbow-road-Sheet.png" id="2_i58fp"]
+[ext_resource type="Texture2D" uid="uid://b8gb8brlf2x6c" path="res://assets/Tilemap/glossy-tile1.png" id="3_lj2vs"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c1iit"]
+texture = ExtResource("1_uaub3")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g44im"]
+texture = ExtResource("2_i58fp")
+0:0/animation_speed = 10.0
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/animation_frame_3/duration = 1.0
+0:0/animation_frame_4/duration = 1.0
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kqrin"]
+texture = ExtResource("3_lj2vs")
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_eokrn"]
+sources/0 = SubResource("TileSetAtlasSource_c1iit")
+sources/1 = SubResource("TileSetAtlasSource_g44im")
+sources/2 = SubResource("TileSetAtlasSource_kqrin")
+
+[node name="Node2D" type="Node2D" unique_id=23586726]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=144210750]
+tile_map_data = PackedByteArray(0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0)
+tile_set = SubResource("TileSet_eokrn")
