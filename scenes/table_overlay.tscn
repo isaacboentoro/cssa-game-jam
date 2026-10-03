@@ -4,9 +4,11 @@
 
 [node name="BlackjackTableOverlay" type="Control" unique_id=822942819]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_ymaxm")
 
 [node name="Felt" type="ColorRect" parent="." unique_id=1843202633]
@@ -60,10 +62,9 @@ layout_mode = 2
 [node name="Controls" type="HBoxContainer" parent="TableBox" unique_id=1405391207]
 layout_mode = 2
 
-[node name="BetInput" type="SpinBox" parent="TableBox/Controls" unique_id=1905505675]
+[node name="DealButton" type="Button" parent="TableBox/Controls" unique_id=1905505675]
 layout_mode = 2
-min_value = 1.0
-value = 10.0
+text = "Deal (10% HP)"
 
 [node name="HitButton" type="Button" parent="TableBox/Controls" unique_id=255136199]
 layout_mode = 2

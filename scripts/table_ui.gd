@@ -8,10 +8,10 @@ extends Control
 @onready var dealer_value: Label = $TableBox/DealerArea/DealerCards/DealerValue
 @onready var player_cards: HBoxContainer = $TableBox/PlayerArea/PlayerCards
 @onready var player_value: Label = $TableBox/PlayerArea/PlayerCards/PlayerValue
-@onready var chips_label: Label = $TableBox/InfoArea/ChipsLabel
+@onready var hp_label: Label = $TableBox/InfoArea/ChipsLabel
 @onready var bet_label: Label = $TableBox/InfoArea/BetLabel
 @onready var result_label: Label = $TableBox/InfoArea/ResultLabel
-@onready var bet_input: SpinBox = $TableBox/Controls/BetInput
+@onready var deal_button: Button = $TableBox/Controls/DealButton
 @onready var hit_button: Button = $TableBox/Controls/HitButton
 @onready var stand_button: Button = $TableBox/Controls/StandButton
 
@@ -25,8 +25,9 @@ func _ready() -> void:
 	Blackjack.state_changed.connect(_on_state_changed)
 	Blackjack.hands_updated.connect(_refresh_hands)
 	Blackjack.round_ended.connect(_on_round_ended)
+	PlayerStats.hp_changed.connect(_on_hp_changed)
 
-	bet_input.value_changed.connect(func(v): Blackjack.place_bet(int(v)))
+	deal_button.pressed.connect(Blackjack.place_bet)
 	hit_button.pressed.connect(Blackjack.hit)
 	stand_button.pressed.connect(Blackjack.stand)
 
@@ -64,18 +65,22 @@ func _refresh_hands() -> void:
 	_refresh_chips()
 
 func _refresh_chips() -> void:
-	chips_label.text = "Chips: %d" % Blackjack.chips
-	bet_label.text = "Bet: %d" % Blackjack.bet
+	hp_label.text = "HP: %d" % round(PlayerStats.get_hp(player_id))
+	bet_label.text = "Bet: %d" % round(Blackjack.bet)
+
+func _on_hp_changed(changed_player_id: String, _hp: float) -> void:
+	if changed_player_id == player_id:
+		_refresh_chips()
 
 func _on_state_changed(state) -> void:
 	var betting: bool = state == Blackjack.State.BETTING
 	var player_turn: bool = state == Blackjack.State.PLAYER_TURN
-	bet_input.editable = betting
+	deal_button.disabled = not betting
 	hit_button.disabled = not player_turn
 	stand_button.disabled = not player_turn
 	if betting:
 		result_label.text = ""
 
-func _on_round_ended(result: String, payout: int) -> void:
-	result_label.text = "%s (payout %d)" % [result, payout]
+func _on_round_ended(result: String, payout: float) -> void:
+	result_label.text = "%s (payout %d)" % [result, round(payout)]
 	_refresh_chips()
