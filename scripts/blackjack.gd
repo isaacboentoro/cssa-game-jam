@@ -3,6 +3,9 @@ extends Node
 signal state_changed(new_state)
 signal hands_updated
 signal round_ended(result:String, payout:int)
+signal table_toggled(opened_by: String)
+
+var opened_by := ""
 
 enum State { BETTING, PLAYER_TURN, DEALER_TURN, ROUND_OVER }
 
@@ -12,6 +15,16 @@ var player_hand: Array = []
 var dealer_hand: Array = []
 var chips := 1000
 var bet := 0
+
+func toggle_table(player_id: String) -> void:
+	if opened_by == "":
+		opened_by = player_id
+	elif opened_by == player_id:
+		opened_by = ""
+	else:
+		return
+	table_toggled.emit(opened_by)
+	
 
 func _set_state(s: State) -> void:
 	state = s

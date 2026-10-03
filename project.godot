@@ -16,6 +16,14 @@ config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 run/size/viewport_width=400
 
+[autoload]
+
+Blackjack="*uid://cjglii7apywf"
+
+[debug]
+
+settings/stdout/print_gpu_profile=true
+
 [display]
 
 window/stretch/mode="canvas_items"
