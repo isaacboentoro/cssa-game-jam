@@ -105,5 +105,5 @@ func _calculate_payout() -> float:
 			multiplier = 35.0
 
 	if not win:
-		return 0.0
+		return -10.0
 	return bet + bet * multiplier

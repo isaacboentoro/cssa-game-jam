@@ -781,15 +781,14 @@ frame_progress = 0.97181237
 speed_scale = 2.5
 
 [node name="JACKPOT" type="AnimatedSprite2D" parent="." unique_id=930224206]
-visible = false
-position = Vector2(291.00003, 449)
+position = Vector2(291, 433)
 scale = Vector2(9, 9)
 sprite_frames = SubResource("SpriteFrames_40ube")
 frame_progress = 0.35259178
 speed_scale = 5.0
 
 [node name="JACKPOT" type="AnimatedSprite2D" parent="JACKPOT" unique_id=1171370658]
-position = Vector2(-0.44444445, 17.222221)
+position = Vector2(-0.5555589, 15.555554)
 sprite_frames = SubResource("SpriteFrames_40ube")
 frame_progress = 0.44566676
 speed_scale = 5.0
