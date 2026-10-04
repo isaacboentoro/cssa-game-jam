@@ -4,8 +4,14 @@
 [ext_resource type="PackedScene" uid="uid://khfdppv03xhy" path="res://scenes/player.tscn" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://cqfkro8po1w7o" path="res://scripts/blackjack_area.gd" id="1_sugp2"]
 [ext_resource type="Texture2D" uid="uid://d15ro32btpvcu" path="res://assets/Backdrops/Casino_Background_V2.png" id="1_tbgi4"]
+[ext_resource type="Texture2D" uid="uid://d2saoledsoo3p" path="res://assets/Robots/NPCs/Robot_NPC_King_L.png" id="2_choun"]
+[ext_resource type="Texture2D" uid="uid://4olqcc04jisv" path="res://assets/Robots/NPCs/Robot_NPC_Slacks_L.png" id="3_ya4ey"]
+[ext_resource type="Texture2D" uid="uid://bhcp6rgks6v3a" path="res://assets/Robots/NPCs/Robot_NPC_Manager_R.png" id="4_eb6dy"]
 [ext_resource type="Script" uid="uid://ct8jramd4kyd7" path="res://scripts/roulette_area.gd" id="4_jyhfs"]
-[ext_resource type="PackedScene" path="res://scenes/slot_machine.tscn" id="6_tefeu"]
+[ext_resource type="Texture2D" uid="uid://bc40um2bhnuxw" path="res://assets/Robots/NPCs/Robot_NPC_Hattington_R.png" id="5_trceg"]
+[ext_resource type="PackedScene" uid="uid://573cec3fn7pe" path="res://scenes/slot_machine.tscn" id="6_tefeu"]
+[ext_resource type="Texture2D" uid="uid://castwnlp0dfou" path="res://assets/Minigames/Roulette/Roulette_Table.png" id="9_eb6dy"]
+[ext_resource type="Script" uid="uid://r6dpbjy6qohw" path="res://scripts/warp_gate.gd" id="11_ya4ey"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_thutw"]
 size = Vector2(31.75, 48.5)
@@ -14,6 +20,9 @@ size = Vector2(31.75, 48.5)
 size = Vector2(37.875, 47)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kv3al"]
+size = Vector2(1.6312505, 2.7571428)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a8y0u"]
 size = Vector2(1.6312505, 2.7571428)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sugp2"]
@@ -155,31 +164,90 @@ separation = Vector2i(1, 0)
 [sub_resource type="TileSet" id="TileSet_jyhfs"]
 sources/0 = SubResource("TileSetAtlasSource_sugp2")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ya4ey"]
+size = Vector2(26, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s52sx"]
+size = Vector2(35.4375, 58)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eb6dy"]
+size = Vector2(60.4375, 46)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_trceg"]
+size = Vector2(59.71875, 32)
+
 [node name="main" type="Control" unique_id=2053701760]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -1481.0
+offset_left = -1474.0
 offset_top = -67.0
-offset_right = -1481.0
+offset_right = -1474.0
 offset_bottom = -67.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1539277268]
+[node name="Casino" type="TextureRect" parent="." unique_id=1539277268]
 layout_mode = 0
-offset_left = -661.0
-offset_top = -184.0
-offset_right = 576.3334
-offset_bottom = 512.0
+offset_left = -648.0
+offset_top = -182.0
+offset_right = 589.3334
+offset_bottom = 514.0
 texture = ExtResource("1_tbgi4")
+
+[node name="King" type="TextureRect" parent="." unique_id=605143833]
+layout_mode = 0
+offset_left = -8.0
+offset_top = -72.0
+offset_right = 57.0
+offset_bottom = -7.0
+texture = ExtResource("2_choun")
+
+[node name="Kid" type="TextureRect" parent="." unique_id=1684501551]
+layout_mode = 0
+offset_left = 94.0
+offset_top = 74.0
+offset_right = 151.0
+offset_bottom = 131.0
+texture = ExtResource("3_ya4ey")
+
+[node name="King2" type="TextureRect" parent="." unique_id=734873344]
+layout_mode = 0
+offset_left = -595.0
+offset_top = 16.0
+offset_right = -527.0
+offset_bottom = 84.0
+texture = ExtResource("4_eb6dy")
+
+[node name="Kid2" type="TextureRect" parent="." unique_id=916444995]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 72.0
+offset_right = 112.0
+offset_bottom = 130.0
+texture = ExtResource("5_trceg")
+
+[node name="Kid3" type="TextureRect" parent="." unique_id=1585756186]
+layout_mode = 0
+offset_left = -333.0
+offset_top = 383.0
+offset_right = -275.0
+offset_bottom = 441.0
+texture = ExtResource("5_trceg")
+
+[node name="Kid4" type="TextureRect" parent="." unique_id=560878698]
+layout_mode = 0
+offset_left = -333.0
+offset_top = 383.0
+offset_right = -275.0
+offset_bottom = 441.0
 
 [node name="Level" type="Node2D" parent="." unique_id=569342947]
 
 [node name="player2" parent="Level" unique_id=1085990600 instance=ExtResource("1_o5qli")]
 unique_name_in_owner = true
-position = Vector2(50, 182)
+position = Vector2(-10, 181)
 player_id = "p2"
 action_left = "p2_left"
 action_right = "p2_right"
@@ -192,7 +260,7 @@ shape = SubResource("RectangleShape2D_thutw")
 
 [node name="player1" parent="Level" unique_id=161519246 instance=ExtResource("1_o5qli")]
 unique_name_in_owner = true
-position = Vector2(-131, 181)
+position = Vector2(-64, 182)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/player1" unique_id=1201604971]
 position = Vector2(9, -7)
@@ -218,12 +286,27 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="RouletteTableZone" type="Area2D" parent="." unique_id=1148935114]
+position = Vector2(-44, -1)
 scale = Vector2(70, 70)
 script = ExtResource("4_jyhfs")
 
+[node name="TextureRect" type="TextureRect" parent="RouletteTableZone" unique_id=1626930997]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -7.1000004
+offset_top = 1.9285717
+offset_right = 72.9
+offset_bottom = 33.928574
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.028534064, 0.03286751)
+texture = ExtResource("9_eb6dy")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RouletteTableZone" unique_id=678827182]
-position = Vector2(-6.271429, 1.2857143)
-shape = SubResource("RectangleShape2D_kv3al")
+position = Vector2(-5.914286, 2.4714286)
+scale = Vector2(1.57916, 0.4856727)
+shape = SubResource("RectangleShape2D_a8y0u")
 
 [node name="ColorRect" type="ColorRect" parent="RouletteTableZone" unique_id=270590636]
 anchors_preset = 15
@@ -258,7 +341,50 @@ position = Vector2(159, 347)
 [node name="SlotMachine5" parent="." unique_id=607005254 instance=ExtResource("6_tefeu")]
 position = Vector2(163, 116)
 
+[node name="LeftGate" type="Area2D" parent="." unique_id=1196602789]
+position = Vector2(-639, 219)
+script = ExtResource("11_ya4ey")
+exit_gate = NodePath("../RightGate")
+exit_offset = Vector2(-40, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftGate" unique_id=413395894]
+position = Vector2(2, 0)
+shape = SubResource("RectangleShape2D_ya4ey")
+
+[node name="RightGate" type="Area2D" parent="." unique_id=1299108522]
+position = Vector2(572, 224)
+script = ExtResource("11_ya4ey")
+exit_gate = NodePath("../LeftGate")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightGate" unique_id=157438824]
+position = Vector2(1.4375, -4)
+shape = SubResource("RectangleShape2D_s52sx")
+
+[node name="TopGate" type="Area2D" parent="." unique_id=68366800]
+position = Vector2(-48, -130)
+script = ExtResource("11_ya4ey")
+exit_gate = NodePath("../BottomGate")
+exit_offset = Vector2(0, -10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopGate" unique_id=785266942]
+position = Vector2(16.78125, -28)
+shape = SubResource("RectangleShape2D_eb6dy")
+
+[node name="BottomGate" type="Area2D" parent="." unique_id=923430050]
+position = Vector2(-41, 474)
+script = ExtResource("11_ya4ey")
+exit_gate = NodePath("../TopGate")
+exit_offset = Vector2(0, 10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomGate" unique_id=581764779]
+position = Vector2(31, 34)
+shape = SubResource("RectangleShape2D_trceg")
+
 [connection signal="body_entered" from="BlackjackTableZone" to="BlackjackTableZone" method="_on_body_entered"]
 [connection signal="body_exited" from="BlackjackTableZone" to="BlackjackTableZone" method="_on_body_exited"]
 [connection signal="body_entered" from="RouletteTableZone" to="RouletteTableZone" method="_on_body_entered"]
 [connection signal="body_exited" from="RouletteTableZone" to="RouletteTableZone" method="_on_body_exited"]
+[connection signal="body_entered" from="LeftGate" to="LeftGate" method="_on_body_entered"]
+[connection signal="body_entered" from="RightGate" to="RightGate" method="_on_body_entered"]
+[connection signal="body_entered" from="TopGate" to="TopGate" method="_on_body_entered"]
+[connection signal="body_entered" from="BottomGate" to="BottomGate" method="_on_body_entered"]

@@ -31,3 +31,6 @@ func _ready() -> void:
 		var remote_transform := RemoteTransform2D.new()
 		remote_transform.remote_path = info.camera.get_path()
 		info.player.add_child(remote_transform)
+		info.player.teleported.connect(func():
+			await get_tree().process_frame
+			info.camera.reset_smoothing())

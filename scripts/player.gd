@@ -11,6 +11,7 @@ const SPEED = 300.0
 var last_direction: Vector2 = Vector2.RIGHT
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
+signal teleported
 
 func _ready() -> void:
 	set_meta("player_id", player_id)
@@ -52,3 +53,6 @@ func play_animation(prefix: String, dir: Vector2) -> void:
 		animated_sprite_2d.play(prefix + "_up")
 	elif dir.y > 0:
 		animated_sprite_2d.play(prefix + "_down")
+
+func on_teleported() -> void:
+	teleported.emit()
