@@ -14,6 +14,10 @@ var last_direction: Vector2 = Vector2.RIGHT
 
 func _ready() -> void:
 	set_meta("player_id", player_id)
+	if player_id == "p1":
+		$AnimatedSprite2D.sprite_frames = load("res://assets/Robots/Blue/bluebot.tres")
+	else:
+		$AnimatedSprite2D.sprite_frames = load("res://assets/Robots/Green/greenbot.tres")
 
 
 func _physics_process(_delta: float) -> void:
