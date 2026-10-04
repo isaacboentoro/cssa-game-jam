@@ -5,7 +5,7 @@ signal drain_rate_changed(rate: float)
 signal bet_percent_changed(percent: float)
 signal match_lost(player_id: String)
 
-const STARTING_HP := 100.0
+const STARTING_HP := 99.0
 const PLAYER_IDS := ["p1", "p2"]
 const BASE_DRAIN_RATE := 1.0 # hp/sec
 const DRAIN_RAMP_INTERVAL := 30.0 # seconds between ramps
@@ -29,21 +29,13 @@ func _process(delta: float) -> void:
 		return
 
 	_ramp_accumulator += delta
-	while _ramp_accumulator >= DRAIN_RAMP_INTERVAL:
-		_ramp_accumulator -= DRAIN_RAMP_INTERVAL
-		drain_rate += DRAIN_RAMP_AMOUNT
-		drain_rate_changed.emit(drain_rate)
-		bet_percent = min(bet_percent + BET_RAMP_AMOUNT, MAX_BET_PERCENT)
-		bet_percent_changed.emit(bet_percent)
+	_apply_drain_tick(delta + _ramp_accumulator/1000)
+	
 
-	_drain_accumulator += delta
-	while _drain_accumulator >= 1.0:
-		_drain_accumulator -= 1.0
-		_apply_drain_tick()
-
-func _apply_drain_tick() -> void:
+func _apply_drain_tick(amount: float) -> void:
+	amount *= drain_rate
 	for player_id in PLAYER_IDS:
-		add_hp(player_id, -drain_rate)
+		add_hp(player_id, -amount)
 	for player_id in PLAYER_IDS:
 		if get_hp(player_id) <= 0.0:
 			_end_match(player_id)
@@ -65,9 +57,8 @@ func add_hp(player_id: String, amount: float) -> void:
 
 ## Deducts `percent` (0-1) of the player's current hp and returns the amount deducted.
 func consume_percent(player_id: String, percent: float) -> float:
-	var amount := get_hp(player_id) * percent
-	add_hp(player_id, -amount)
-	return amount
+	add_hp(player_id, percent)
+	return percent
 
 ## Resets HP, drain rate, and match state for a fresh match.
 func reset() -> void:

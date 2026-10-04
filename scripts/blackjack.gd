@@ -12,10 +12,10 @@ const PLAYER_WINS_TIES := true # standard casino: ties push
 const FIVE_CARD_CHARLIE := true # 5 cards without busting wins outright
 
 # Payouts are total hp returned as a multiple of the bet (bet was already deducted).
-const WIN_RETURN := 2.25 # standard casino: 2.0
+const WIN_RETURN := 2 # standard casino: 2.0
 const BLACKJACK_RETURN := 3.0 # standard casino: 2.5
 const PUSH_RETURN := 1.0
-const LOSS_RETURN := 0.25 # refund on bust/loss; standard casino: 0.0
+const LOSS_RETURN := -1.0 # refund on bust/loss; standard casino: 0.0
 
 var opened_by := ""
 
@@ -55,7 +55,7 @@ func _set_state(s: State) -> void:
 func place_bet() -> void:
 	if state != State.BETTING or opened_by == "":
 		return
-	bet = PlayerStats.consume_percent(opened_by, PlayerStats.bet_percent)
+	bet = 10
 	_deal_initial()
 	
 func _deal_initial() -> void:
@@ -114,7 +114,7 @@ func _resolve() -> void:
 	var result := ""
 	var payout := 0.0
 
-	var tie_return: float = WIN_RETURN if PLAYER_WINS_TIES else PUSH_RETURN
+	var tie_return: float = 0 #WIN_RETURN if PLAYER_WINS_TIES else PUSH_RETURN
 	var tie_result: String = "tie - you win" if PLAYER_WINS_TIES else "push"
 
 	if player_value > 21:

@@ -11,9 +11,15 @@ const SPEED = 300.0
 var last_direction: Vector2 = Vector2.RIGHT
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
+signal teleported
 
 func _ready() -> void:
 	set_meta("player_id", player_id)
+	if player_id == "p1":
+		$AnimatedSprite2D.sprite_frames = load("res://assets/Robots/Blue/bluebot.tres")
+	else:
+		$AnimatedSprite2D.sprite_frames = load("res://assets/Robots/Green/greenbot.tres")
+
 
 
 func _physics_process(_delta: float) -> void:
@@ -38,6 +44,7 @@ func process_animation() -> void:
 		play_animation("idle", last_direction)
 
 
+
 func play_animation(prefix: String, dir: Vector2) -> void:
 	if dir.x != 0:
 		animated_sprite_2d.flip_h = dir.x < 0
@@ -46,3 +53,6 @@ func play_animation(prefix: String, dir: Vector2) -> void:
 		animated_sprite_2d.play(prefix + "_up")
 	elif dir.y > 0:
 		animated_sprite_2d.play(prefix + "_down")
+
+func on_teleported() -> void:
+	teleported.emit()
