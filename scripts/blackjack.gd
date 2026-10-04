@@ -6,6 +6,7 @@ signal round_ended(result:String, payout:float)
 signal table_toggled(opened_by: String)
 
 const BET_PERCENT := 0.1 # fraction of current hp wagered each round
+const RESULT_DISPLAY_SECONDS := 1.5
 
 var opened_by := ""
 
@@ -120,9 +121,11 @@ func _resolve() -> void:
 
 	PlayerStats.add_hp(opened_by, payout)
 	round_ended.emit(result, payout)
-	
+	_schedule_auto_leave()
 
-	
-	
-
-	
+func _schedule_auto_leave() -> void:
+	var closing_for := opened_by
+	await get_tree().create_timer(RESULT_DISPLAY_SECONDS).timeout
+	if opened_by == closing_for and state == State.ROUND_OVER:
+		opened_by = ""
+		table_toggled.emit("")

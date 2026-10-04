@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 
+@export var player_id := "p1"
 @export var action_left := "p1_left"
 @export var action_right := "p1_right"
 @export var action_up := "p1_up"
@@ -9,6 +10,10 @@ const SPEED = 300.0
 
 var last_direction: Vector2 = Vector2.RIGHT
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+
+
+func _ready() -> void:
+	set_meta("player_id", player_id)
 
 
 func _physics_process(_delta: float) -> void:

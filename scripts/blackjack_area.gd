@@ -11,6 +11,8 @@ func _on_body_exited(body: Node) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	for player_id in players_in_range:
+		if Blackjack.opened_by == player_id:
+			continue # once open, table_ui.gd owns action1/action2 for this player
 		var action : String = player_id + "_action1"
 		if event.is_action_pressed(action):
-			$Blackjack.toggle_table(player_id)
+			Blackjack.call_deferred("toggle_table", player_id)

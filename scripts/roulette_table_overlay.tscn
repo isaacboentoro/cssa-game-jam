@@ -1,5 +1,8 @@
 [gd_scene format=3 uid="uid://x45j7fj0np8q"]
 
+[ext_resource type="Script" path="res://scripts/roulette_ui.gd" id="1_rulet"]
+[ext_resource type="PackedScene" uid="uid://dt5mb3upvde1w" path="res://scenes/action_hint.tscn" id="2_ahnt"]
+
 [node name="RouletteTableOverlay" type="Control" unique_id=1036071629]
 layout_mode = 3
 anchors_preset = 15
@@ -7,22 +10,63 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_rulet")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=688575103]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Felt" type="ColorRect" parent="." unique_id=688575103]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.29803923, 0.17647059, 0.19607843, 1)
 
 [node name="RouletteBox" type="VBoxContainer" parent="." unique_id=1761877010]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Wheel" type="VBoxContainer" parent="RouletteBox" unique_id=1448081384]
 layout_mode = 2
 
+[node name="SpinLabel" type="Label" parent="RouletteBox/Wheel" unique_id=1448081385]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+text = "—"
+
 [node name="InfoArea" type="HBoxContainer" parent="RouletteBox" unique_id=1362759249]
+layout_mode = 2
+
+[node name="HpLabel" type="Label" parent="RouletteBox/InfoArea" unique_id=1362759250]
+layout_mode = 2
+
+[node name="BetLabel" type="Label" parent="RouletteBox/InfoArea" unique_id=1362759251]
+layout_mode = 2
+
+[node name="ResultLabel" type="Label" parent="RouletteBox/InfoArea" unique_id=1362759252]
+layout_mode = 2
+
+[node name="ActionHint1" parent="RouletteBox/InfoArea" unique_id=1362759254 instance=ExtResource("2_ahnt")]
+layout_mode = 2
+
+[node name="ActionHint2" parent="RouletteBox/InfoArea" unique_id=1362759255 instance=ExtResource("2_ahnt")]
 layout_mode = 2
 
 [node name="Controls" type="VBoxContainer" parent="RouletteBox" unique_id=3471745]
 layout_mode = 2
+
+[node name="OutsideBets" type="HBoxContainer" parent="RouletteBox/Controls" unique_id=3471746]
+layout_mode = 2
+
+[node name="RedButton" type="Button" parent="RouletteBox/Controls/OutsideBets" unique_id=3471747]
+layout_mode = 2
+text = "Red"
+
+[node name="BlackButton" type="Button" parent="RouletteBox/Controls/OutsideBets" unique_id=3471748]
+layout_mode = 2
+text = "Black"

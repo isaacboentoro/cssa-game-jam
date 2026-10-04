@@ -2,7 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://d4l7qdb8wwow0" path="res://assets/Tilemap/tilemap.png" id="1_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://khfdppv03xhy" path="res://scenes/player.tscn" id="1_o5qli"]
-[ext_resource type="Script" uid="uid://cqfkro8po1w7o" path="res://scripts/area_2d.gd" id="1_sugp2"]
+[ext_resource type="Script" uid="uid://cqfkro8po1w7o" path="res://scripts/blackjack_area.gd" id="1_sugp2"]
+[ext_resource type="Script" uid="uid://ct8jramd4kyd7" path="res://scripts/roulette_area.gd" id="4_jyhfs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sugp2"]
 texture = ExtResource("1_0wfyh")
@@ -144,10 +145,10 @@ separation = Vector2i(1, 0)
 sources/0 = SubResource("TileSetAtlasSource_sugp2")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_thutw"]
-size = Vector2(70, 80)
+size = Vector2(56.5, 67)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3tmb8"]
-size = Vector2(70, 87)
+size = Vector2(51.75, 68)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kv3al"]
 size = Vector2(1.6312505, 2.7571428)
@@ -173,12 +174,14 @@ tile_set = SubResource("TileSet_jyhfs")
 [node name="player2" parent="Level" unique_id=1085990600 instance=ExtResource("1_o5qli")]
 unique_name_in_owner = true
 position = Vector2(576, 217)
+player_id = "p2"
 action_left = "p2_left"
 action_right = "p2_right"
 action_up = "p2_up"
 action_down = "p2_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/player2" unique_id=699956752]
+position = Vector2(7.75, -6.5)
 shape = SubResource("RectangleShape2D_thutw")
 
 [node name="player1" parent="Level" unique_id=161519246 instance=ExtResource("1_o5qli")]
@@ -186,24 +189,48 @@ unique_name_in_owner = true
 position = Vector2(-29, 177)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/player1" unique_id=1201604971]
-position = Vector2(7.5, 0)
+position = Vector2(10.125, -6)
 shape = SubResource("RectangleShape2D_3tmb8")
 
-[node name="TableZone" type="Area2D" parent="." unique_id=1859723260]
+[node name="BlackjackTableZone" type="Area2D" parent="." unique_id=1859723260]
 scale = Vector2(70, 70)
 script = ExtResource("1_sugp2")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TableZone" unique_id=500294826]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BlackjackTableZone" unique_id=500294826]
 position = Vector2(-3.9142861, 1.3000001)
 shape = SubResource("RectangleShape2D_kv3al")
 
-[node name="ColorRect" type="ColorRect" parent="TableZone/CollisionShape2D" unique_id=1237487656]
+[node name="ColorRect" type="ColorRect" parent="BlackjackTableZone" unique_id=1237487656]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -2.1000004
-offset_top = -3.0571427
-offset_right = -2.1000004
-offset_bottom = -3.0571427
+offset_left = -6.014286
+offset_top = -1.7571425
+offset_right = -6.014286
+offset_bottom = -1.7571425
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="RouletteTableZone" type="Area2D" parent="." unique_id=1148935114]
+scale = Vector2(70, 70)
+script = ExtResource("4_jyhfs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RouletteTableZone" unique_id=678827182]
+position = Vector2(-6.271429, 1.2857143)
+shape = SubResource("RectangleShape2D_kv3al")
+
+[node name="ColorRect" type="ColorRect" parent="RouletteTableZone" unique_id=270590636]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.371429
+offset_top = -1.7714283
+offset_right = -8.371429
+offset_bottom = -1.7714283
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="body_entered" from="BlackjackTableZone" to="BlackjackTableZone" method="_on_body_entered"]
+[connection signal="body_exited" from="BlackjackTableZone" to="BlackjackTableZone" method="_on_body_exited"]
+[connection signal="body_entered" from="RouletteTableZone" to="RouletteTableZone" method="_on_body_entered"]
+[connection signal="body_exited" from="RouletteTableZone" to="RouletteTableZone" method="_on_body_exited"]
