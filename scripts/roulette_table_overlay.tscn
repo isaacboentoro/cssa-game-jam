@@ -1,7 +1,177 @@
 [gd_scene format=3 uid="uid://x45j7fj0np8q"]
 
-[ext_resource type="Script" path="res://scripts/roulette_ui.gd" id="1_rulet"]
+[ext_resource type="Script" uid="uid://bronhvclt1flq" path="res://scripts/roulette_ui.gd" id="1_rulet"]
+[ext_resource type="Texture2D" uid="uid://b423yvnjyeify" path="res://assets/Minigames/Roulette/Wheel-Sheet.png" id="2_3qwbp"]
 [ext_resource type="PackedScene" uid="uid://dt5mb3upvde1w" path="res://scenes/action_hint.tscn" id="2_ahnt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sammk"]
+atlas = ExtResource("2_3qwbp")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fxwyu"]
+atlas = ExtResource("2_3qwbp")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w53vo"]
+atlas = ExtResource("2_3qwbp")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p6ism"]
+atlas = ExtResource("2_3qwbp")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lj4j8"]
+atlas = ExtResource("2_3qwbp")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tgqtn"]
+atlas = ExtResource("2_3qwbp")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yfva5"]
+atlas = ExtResource("2_3qwbp")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8yhyq"]
+atlas = ExtResource("2_3qwbp")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rls6d"]
+atlas = ExtResource("2_3qwbp")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kcuo7"]
+atlas = ExtResource("2_3qwbp")
+region = Rect2(576, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ai7nk"]
+atlas = ExtResource("2_3qwbp")
+region = Rect2(640, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_taodk"]
+atlas = ExtResource("2_3qwbp")
+region = Rect2(704, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gnw2q"]
+atlas = ExtResource("2_3qwbp")
+region = Rect2(768, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wm0y5"]
+atlas = ExtResource("2_3qwbp")
+region = Rect2(832, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ex3yy"]
+atlas = ExtResource("2_3qwbp")
+region = Rect2(896, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ap3ye"]
+atlas = ExtResource("2_3qwbp")
+region = Rect2(960, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_76wui"]
+atlas = ExtResource("2_3qwbp")
+region = Rect2(1024, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sguo1"]
+atlas = ExtResource("2_3qwbp")
+region = Rect2(1088, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5tvaf"]
+atlas = ExtResource("2_3qwbp")
+region = Rect2(1152, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xi7sh"]
+atlas = ExtResource("2_3qwbp")
+region = Rect2(1216, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ksl3"]
+atlas = ExtResource("2_3qwbp")
+region = Rect2(1280, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xfpi2"]
+atlas = ExtResource("2_3qwbp")
+region = Rect2(1344, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_37bqv"]
+atlas = ExtResource("2_3qwbp")
+region = Rect2(1408, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3tmb8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sammk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fxwyu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w53vo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p6ism")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lj4j8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tgqtn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yfva5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8yhyq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rls6d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kcuo7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ai7nk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_taodk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gnw2q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wm0y5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ex3yy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ap3ye")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_76wui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sguo1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5tvaf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xi7sh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ksl3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xfpi2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_37bqv")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="RouletteTableOverlay" type="Control" unique_id=1036071629]
 layout_mode = 3
@@ -20,7 +190,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(0.29803923, 0.17647059, 0.19607843, 1)
+color = Color(0.29803923, 0.1764706, 0.19607843, 1)
 
 [node name="RouletteBox" type="VBoxContainer" parent="." unique_id=1761877010]
 layout_mode = 1
@@ -30,14 +200,20 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="WheelSprite" type="AnimatedSprite2D" parent="RouletteBox" unique_id=1939208365]
+position = Vector2(177.00003, 181)
+scale = Vector2(5.359375, 5.359375)
+sprite_frames = SubResource("SpriteFrames_3tmb8")
+frame_progress = 0.7154685
+
 [node name="Wheel" type="VBoxContainer" parent="RouletteBox" unique_id=1448081384]
 layout_mode = 2
 
 [node name="SpinLabel" type="Label" parent="RouletteBox/Wheel" unique_id=1448081385]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-horizontal_alignment = 1
 text = "—"
+horizontal_alignment = 1
 
 [node name="InfoArea" type="HBoxContainer" parent="RouletteBox" unique_id=1362759249]
 layout_mode = 2
