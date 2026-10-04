@@ -192,7 +192,7 @@ mouse_filter = 2
 color = Color(0.18, 0.16, 0.3, 1)
 
 [node name="HudTileMap" type="TileMapLayer" parent="." unique_id=184367546]
-position = Vector2(-207, 32)
+position = Vector2(-293, 21)
 scale = Vector2(4, 4)
 tile_map_data = PackedByteArray("AAAHAAMAAAAAAAAAAAAHAAYAAAAAAAIAAAAHAAQAAAAAAAEAAAAHAAUAAAAAAAEAAAAIAAMAAAABAAAAAAAJAAMAAAABAAAAAAAIAAYAAAABAAIAAAAJAAYAAAABAAIAAAAIAAQAAAABAAEAAAAIAAUAAAABAAEAAAAJAAUAAAABAAEAAAAJAAQAAAABAAEAAAAKAAMAAAACAAAAAAAKAAQAAAACAAEAAAAKAAUAAAACAAEAAAAKAAYAAAACAAIAAAA=")
 tile_set = SubResource("TileSet_n8mhf")
@@ -200,7 +200,7 @@ tile_set = SubResource("TileSet_n8mhf")
 [node name="interactionables" type="Node2D" parent="." unique_id=320147067]
 
 [node name="ACTION1" type="AnimatedSprite2D" parent="interactionables" unique_id=2062218143]
-position = Vector2(119, 320)
+position = Vector2(284, 424.00003)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_thutw")
 animation = &"QCircGrey"
@@ -251,5 +251,4 @@ alignment = 1
 
 [node name="SpinButton" type="Button" parent="SlotsBox/Controls" unique_id=2106485990]
 layout_mode = 2
-text = "Spin"
 icon = SubResource("AtlasTexture_gee14")

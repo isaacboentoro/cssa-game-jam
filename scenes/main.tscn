@@ -250,7 +250,7 @@ position = Vector2(-257, 355)
 position = Vector2(366, 353)
 
 [node name="SlotMachine3" parent="." unique_id=2121513430 instance=ExtResource("6_tefeu")]
-position = Vector2(379, 128)
+position = Vector2(381, 114)
 
 [node name="SlotMachine4" parent="." unique_id=853648019 instance=ExtResource("6_tefeu")]
 position = Vector2(159, 347)

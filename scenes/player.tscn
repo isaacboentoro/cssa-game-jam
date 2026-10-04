@@ -233,4 +233,4 @@ texture_filter = 1
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_7ksya")
 animation = &"dying"
-frame_progress = 0.039451968
+frame_progress = 0.5032289

@@ -16,6 +16,7 @@ func _ready() -> void:
 	set_meta("player_id", player_id)
 
 
+
 func _physics_process(_delta: float) -> void:
 	process_movement()
 	process_animation()
