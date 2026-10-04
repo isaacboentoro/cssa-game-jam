@@ -1,0 +1,171 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/start_screen.gd" id="1_start"]
+
+[node name="StartScreen" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_start")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.12, 0.1, 0.16, 1)
+
+[node name="Layout" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="Title" type="Label" parent="Layout"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "CSSA Game Jam"
+horizontal_alignment = 1
+
+[node name="Players" type="HBoxContainer" parent="Layout"]
+layout_mode = 2
+theme_override_constants/separation = 160
+alignment = 1
+
+[node name="P1Panel" type="VBoxContainer" parent="Layout/Players"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="P1Title" type="Label" parent="Layout/Players/P1Panel"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "PLAYER 1"
+
+[node name="P1Move" type="Label" parent="Layout/Players/P1Panel"]
+layout_mode = 2
+text = "Move:  W  A  S  D"
+
+[node name="P1Action1" type="HBoxContainer" parent="Layout/Players/P1Panel"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="P1Action1Icon" type="TextureRect" parent="Layout/Players/P1Panel/P1Action1"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Layout/Players/P1Panel/P1Action1"]
+layout_mode = 2
+text = "Interact / Hit / Spin"
+
+[node name="P1Action2" type="HBoxContainer" parent="Layout/Players/P1Panel"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="P1Action2Icon" type="TextureRect" parent="Layout/Players/P1Panel/P1Action2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Layout/Players/P1Panel/P1Action2"]
+layout_mode = 2
+text = "Leave / Stand"
+
+[node name="P2Panel" type="VBoxContainer" parent="Layout/Players"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="P2Title" type="Label" parent="Layout/Players/P2Panel"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "PLAYER 2"
+
+[node name="P2Move" type="Label" parent="Layout/Players/P2Panel"]
+layout_mode = 2
+text = "Move:  I  J  K  L"
+
+[node name="P2Action1" type="HBoxContainer" parent="Layout/Players/P2Panel"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="P2Action1Icon" type="TextureRect" parent="Layout/Players/P2Panel/P2Action1"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Layout/Players/P2Panel/P2Action1"]
+layout_mode = 2
+text = "Interact / Hit / Spin"
+
+[node name="P2Action2" type="HBoxContainer" parent="Layout/Players/P2Panel"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="P2Action2Icon" type="TextureRect" parent="Layout/Players/P2Panel/P2Action2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Layout/Players/P2Panel/P2Action2"]
+layout_mode = 2
+text = "Leave / Stand"
+
+[node name="StartHint" type="HBoxContainer" parent="Layout"]
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="HoldLabel" type="Label" parent="Layout/StartHint"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Hold"
+
+[node name="StartP1Icon" type="TextureRect" parent="Layout/StartHint"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="PlusLabel" type="Label" parent="Layout/StartHint"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "+"
+
+[node name="StartP2Icon" type="TextureRect" parent="Layout/StartHint"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TogetherLabel" type="Label" parent="Layout/StartHint"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "together to start"
+
+[node name="HoldProgress" type="ProgressBar" parent="Layout"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(320, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+show_percentage = false
