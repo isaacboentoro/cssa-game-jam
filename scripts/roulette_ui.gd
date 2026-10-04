@@ -8,6 +8,7 @@ const SPIN_DURATION := 1.2
 const SPIN_TICK := 0.08
 
 @onready var felt: ColorRect = $Felt
+@onready var wheel_sprite: AnimatedSprite2D = $RouletteBox/WheelSprite
 @onready var spin_label: Label = $RouletteBox/Wheel/SpinLabel
 @onready var hp_label: Label = $RouletteBox/InfoArea/HpLabel
 @onready var bet_label: Label = $RouletteBox/InfoArea/BetLabel
@@ -74,18 +75,23 @@ func _on_state_changed(state) -> void:
 		action_hint_1.set_text("")
 		action_hint_2.set_text("")
 
-## Placeholder spin animation: cycles the label through random numbers until it
-## lands on the predetermined result, then tells Roulette it's safe to pay out.
-## Swap this for a real wheel/ball animation later — just call finish_spin()
-## from whatever signal marks that animation as actually finished.
 func _on_spin_result(number: int, color: String) -> void:
-	var elapsed := 0.0
-	while elapsed < SPIN_DURATION:
+	wheel_sprite.stop()
+	var frame_count := wheel_sprite.sprite_frames.get_frame_count(wheel_sprite.animation)
+	var tween := create_tween()
+	tween.tween_method(_set_wheel_frame, 0.0, float(frame_count), SPIN_DURATION) \
+		.set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
+
+	while tween.is_running():
 		spin_label.text = str(randi() % 37)
 		await get_tree().create_timer(SPIN_TICK).timeout
-		elapsed += SPIN_TICK
+
 	spin_label.text = "%d %s" % [number, color.capitalize()]
 	Roulette.finish_spin()
+
+func _set_wheel_frame(progress: float) -> void:
+	var frame_count := wheel_sprite.sprite_frames.get_frame_count(wheel_sprite.animation)
+	wheel_sprite.frame = posmod(int(progress), frame_count)
 
 func _on_round_ended(result: String, payout: float) -> void:
 	result_label.text = "%s (payout %d)" % [result, round(payout)]

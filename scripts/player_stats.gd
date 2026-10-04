@@ -2,6 +2,7 @@ extends Node
 
 signal hp_changed(player_id: String, hp: float)
 signal drain_rate_changed(rate: float)
+signal bet_percent_changed(percent: float)
 signal match_lost(player_id: String)
 
 const STARTING_HP := 100.0
@@ -9,10 +10,14 @@ const PLAYER_IDS := ["p1", "p2"]
 const BASE_DRAIN_RATE := 1.0 # hp/sec
 const DRAIN_RAMP_INTERVAL := 30.0 # seconds between ramps
 const DRAIN_RAMP_AMOUNT := 1.0 # hp/sec added per ramp
+const BASE_BET_PERCENT := 0.1 # fraction of current hp wagered per minigame round
+const BET_RAMP_AMOUNT := 0.01 # added to bet_percent per ramp
+const MAX_BET_PERCENT := 1.0
 const LOSS_SCENE := "res://scenes/loss_screen.tscn"
 
 var _hp: Dictionary = {}
 var drain_rate := BASE_DRAIN_RATE
+var bet_percent := BASE_BET_PERCENT
 var last_loser_id := ""
 
 var _drain_accumulator := 0.0
@@ -28,6 +33,8 @@ func _process(delta: float) -> void:
 		_ramp_accumulator -= DRAIN_RAMP_INTERVAL
 		drain_rate += DRAIN_RAMP_AMOUNT
 		drain_rate_changed.emit(drain_rate)
+		bet_percent = min(bet_percent + BET_RAMP_AMOUNT, MAX_BET_PERCENT)
+		bet_percent_changed.emit(bet_percent)
 
 	_drain_accumulator += delta
 	while _drain_accumulator >= 1.0:
@@ -66,8 +73,10 @@ func consume_percent(player_id: String, percent: float) -> float:
 func reset() -> void:
 	_hp.clear()
 	drain_rate = BASE_DRAIN_RATE
+	bet_percent = BASE_BET_PERCENT
 	last_loser_id = ""
 	_drain_accumulator = 0.0
 	_ramp_accumulator = 0.0
 	_match_over = false
 	drain_rate_changed.emit(drain_rate)
+	bet_percent_changed.emit(bet_percent)
