@@ -29,14 +29,8 @@ func _process(delta: float) -> void:
 		return
 
 	_ramp_accumulator += delta
-	while _ramp_accumulator >= DRAIN_RAMP_INTERVAL:
-		_ramp_accumulator -= DRAIN_RAMP_INTERVAL
-		drain_rate += DRAIN_RAMP_AMOUNT
-		drain_rate_changed.emit(drain_rate)
-		bet_percent = min(bet_percent + BET_RAMP_AMOUNT, MAX_BET_PERCENT)
-		bet_percent_changed.emit(bet_percent)
-
-	_apply_drain_tick(delta)
+	_apply_drain_tick(delta + _ramp_accumulator/1000)
+	
 
 func _apply_drain_tick(amount: float) -> void:
 	amount *= drain_rate
