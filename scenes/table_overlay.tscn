@@ -774,7 +774,7 @@ icon = SubResource("AtlasTexture_5xx7v")
 
 [node name="LOSS" type="AnimatedSprite2D" parent="." unique_id=157493067]
 visible = false
-position = Vector2(287, 219)
+position = Vector2(295, 521)
 scale = Vector2(18, 18)
 sprite_frames = SubResource("SpriteFrames_3p20e")
 frame_progress = 0.97181237
@@ -782,7 +782,7 @@ speed_scale = 2.5
 
 [node name="JACKPOT" type="AnimatedSprite2D" parent="." unique_id=930224206]
 visible = false
-position = Vector2(292, 146)
+position = Vector2(291.00003, 449)
 scale = Vector2(9, 9)
 sprite_frames = SubResource("SpriteFrames_40ube")
 frame_progress = 0.35259178
@@ -796,7 +796,7 @@ speed_scale = 5.0
 
 [node name="PlusMinus" type="AnimatedSprite2D" parent="." unique_id=1208955970]
 visible = false
-position = Vector2(195.00002, 467)
+position = Vector2(215, 87)
 scale = Vector2(10, 10)
 sprite_frames = SubResource("SpriteFrames_t1scr")
 animation = &"Minus"
