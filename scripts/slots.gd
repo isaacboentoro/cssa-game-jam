@@ -77,16 +77,16 @@ func finish_spin(player_id: String) -> void:
 	var same_rank := _all_match(reels, "rank")
 
 	var result := "lose"
-	var payout := 0.0
+	var payout := -10.0
 	if same_suit and same_rank:
 		result = "jackpot!"
-		payout = session.bet * IDENTICAL_RETURN
+		payout = 40
 	elif same_rank:
 		result = "same number!"
-		payout = session.bet * SAME_RANK_RETURN
+		payout = 5
 	elif same_suit:
 		result = "same suit!"
-		payout = session.bet * SAME_SUIT_RETURN
+		payout = 15
 
 	PlayerStats.add_hp(player_id, payout)
 	_set_state(player_id, State.ROUND_OVER)
