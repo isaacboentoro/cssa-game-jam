@@ -147,7 +147,7 @@ func _on_state_changed(state) -> void:
 func _on_round_ended(result: String, payout: float) -> void:
 	result_label.text = "%s (payout %d)" % [result, round(payout)]
 	$PlusMinus.visible = true
-	if payout == 0.0:
+	if payout <= 0.0:
 		$LOSS.visible = true
 		$LOSS.play("default")
 		$PlusMinus.play("Minus")

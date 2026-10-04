@@ -38,6 +38,7 @@ func process_animation() -> void:
 		play_animation("idle", last_direction)
 
 
+
 func play_animation(prefix: String, dir: Vector2) -> void:
 	if dir.x != 0:
 		animated_sprite_2d.flip_h = dir.x < 0

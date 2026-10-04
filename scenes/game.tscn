@@ -85,7 +85,6 @@ action2_icon = SubResource("AtlasTexture_i0o6m")
 [node name="LeftHpLabel" type="Label" parent="HBoxContainer/LeftViewportContainer" unique_id=1945502881]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
-text = "HP: 100"
 script = ExtResource("4_hpctr")
 
 [node name="LeftRouletteOverlay" parent="HBoxContainer/LeftViewportContainer" unique_id=1945502883 instance=ExtResource("5_rlt8e")]
@@ -118,7 +117,6 @@ action2_icon = SubResource("AtlasTexture_vtaks")
 [node name="RightHpLabel" type="Label" parent="HBoxContainer/RightViewportContainer" unique_id=1945502882]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
-text = "HP: 100"
 script = ExtResource("4_hpctr")
 player_id = "p2"
 
