@@ -151,6 +151,8 @@ func _on_round_ended(for_player: String, result: String, payout: float) -> void:
 		$JACKPOT/JACKPOT2.play("default")
 		$JACKPOT/JACKPOT2/JACKPOT2.play("default")
 		$JACKPOT/JACKPOT2/JACKPOT2/JACKPOT2.play("default")
+		$PlusMinus.play("Plus")
+		$PlusMinus/Lightning.play("flashinggreen")
 	if result == "lose":
 		$LOSS.visible = true
 		$LOSS.play("default")

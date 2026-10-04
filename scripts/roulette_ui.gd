@@ -9,7 +9,7 @@ const SPIN_TICK := 0.08
 
 @onready var felt: ColorRect = $Felt
 @onready var wheel_sprite: AnimatedSprite2D = $RouletteBox/WheelSprite
-@onready var spin_label: Label = $RouletteBox/Wheel/SpinLabel
+@onready var spin_label: Label = $RouletteBox/SpinLabel
 @onready var hp_label: Label = $RouletteBox/InfoArea/HpLabel
 @onready var bet_label: Label = $RouletteBox/InfoArea/BetLabel
 @onready var result_label: Label = $RouletteBox/InfoArea/ResultLabel
@@ -28,8 +28,8 @@ func _ready() -> void:
 	felt.visible = false
 	_action1 = player_id + "_action1"
 	_action2 = player_id + "_action2"
-	if action1_icon: action_hint_1.icon = action1_icon
-	if action2_icon: action_hint_2.icon = action2_icon
+	#if action1_icon: action_hint_1.icon = action1_icon
+	#if action2_icon: action_hint_2.icon = action2_icon
 
 	_bet_buttons = [red_button, black_button]
 
@@ -38,9 +38,18 @@ func _ready() -> void:
 	Roulette.spin_result.connect(_on_spin_result)
 	Roulette.round_ended.connect(_on_round_ended)
 	PlayerStats.hp_changed.connect(_on_hp_changed)
+	$JACKPOT.visible = false
+	$LOSS.visible = false
+	$PlusMinus.visible = false
+	if player_id == "p1":
+		$interactionables/ACTION1.play("QCircGrey")
+		$interactionables/ACTION2.play("ECircGrey")
+	else:
+		$interactionables/ACTION1.play("UCircGrey")
+		$interactionables/ACTION2.play("OCircGrey")
 
-	red_button.pressed.connect(func(): Roulette.place_bet(Roulette.BetType.RED))
-	black_button.pressed.connect(func(): Roulette.place_bet(Roulette.BetType.BLACK))
+#	red_button.pressed.connect(func(): Roulette.place_bet(Roulette.BetType.RED))
+	#black_button.pressed.connect(func(): Roulette.place_bet(Roulette.BetType.BLACK))
 
 	_on_state_changed(Roulette.state)
 	_refresh_info()
@@ -61,19 +70,20 @@ func _on_table_toggled(opened_by: String) -> void:
 	var show_table := opened_by == player_id
 	visible = show_table
 	felt.visible = show_table
+	$JACKPOT.visible = false
+	$LOSS.visible = false
+	$PlusMinus.visible = false
 
 func _on_state_changed(state) -> void:
 	var betting: bool = state == Roulette.State.BETTING
-	for button in _bet_buttons:
-		button.disabled = not betting
 	if betting:
 		result_label.text = ""
 		spin_label.text = "—"
-		action_hint_1.set_text("Bet Red")
-		action_hint_2.set_text("Bet Black")
-	else:
-		action_hint_1.set_text("")
-		action_hint_2.set_text("")
+#		action_hint_1.set_text("Bet Red")
+#		action_hint_2.set_text("Bet Black")
+
+#		action_hint_1.set_text("")
+#		action_hint_2.set_text("")
 
 func _on_spin_result(number: int, color: String) -> void:
 	wheel_sprite.stop()
@@ -95,6 +105,17 @@ func _set_wheel_frame(progress: float) -> void:
 
 func _on_round_ended(result: String, payout: float) -> void:
 	result_label.text = "%s (payout %d)" % [result, round(payout)]
+	$PlusMinus.visible = true
+	if result == "win":
+		$JACKPOT.visible = true
+		$JACKPOT.play("default")
+		$PlusMinus.play("Plus")
+		$PlusMinus/Lightning.play("flashinggreen")
+	else:
+		$LOSS.visible = true
+		$LOSS.play("default")
+		$PlusMinus.play("Minus")
+		$PlusMinus/Lightning.play("explodelong")
 	_refresh_info()
 
 func _refresh_info() -> void:
