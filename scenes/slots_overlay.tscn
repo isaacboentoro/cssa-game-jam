@@ -1,0 +1,255 @@
+[gd_scene format=4 uid="uid://ba17h7td02oef"]
+
+[ext_resource type="Script" uid="uid://bdy7n65ec87xj" path="res://scripts/slots_ui.gd" id="1_slots"]
+[ext_resource type="Texture2D" uid="uid://c7v3cq07tpdof" path="res://assets/Tilemap/hud-rainbow-Sheet.png" id="2_8cdm6"]
+[ext_resource type="PackedScene" uid="uid://dt5mb3upvde1w" path="res://scenes/action_hint.tscn" id="2_ahnt"]
+[ext_resource type="Texture2D" uid="uid://cnquk8l0hw2by" path="res://assets/hud-elements/QEUO-Buttons.png" id="2_cph2a"]
+[ext_resource type="Texture2D" uid="uid://4x00ntd4xu60" path="res://assets/hud-elements/playing-buttons.png" id="3_vimyb"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8cdm6"]
+texture = ExtResource("2_8cdm6")
+0:0/animation_columns = 5
+0:0/animation_separation = Vector2i(2, 0)
+0:0/animation_speed = 10.0
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/animation_frame_3/duration = 1.0
+0:0/animation_frame_4/duration = 1.0
+0:0/0 = 0
+1:0/0 = 0
+2:0/animation_separation = Vector2i(2, 0)
+2:0/animation_speed = 10.0
+2:0/animation_frame_0/duration = 1.0
+2:0/animation_frame_1/duration = 1.0
+2:0/animation_frame_2/duration = 1.0
+2:0/animation_frame_3/duration = 1.0
+2:0/animation_frame_4/duration = 1.0
+2:0/0 = 0
+0:1/animation_separation = Vector2i(2, 0)
+0:1/animation_speed = 10.0
+0:1/animation_frame_0/duration = 1.0
+0:1/animation_frame_1/duration = 1.0
+0:1/animation_frame_2/duration = 1.0
+0:1/animation_frame_3/duration = 1.0
+0:1/animation_frame_4/duration = 1.0
+0:1/0 = 0
+1:1/0 = 0
+2:1/animation_separation = Vector2i(2, 0)
+2:1/animation_speed = 10.0
+2:1/animation_frame_0/duration = 1.0
+2:1/animation_frame_1/duration = 1.0
+2:1/animation_frame_2/duration = 1.0
+2:1/animation_frame_3/duration = 1.0
+2:1/animation_frame_4/duration = 1.0
+2:1/0 = 0
+0:2/animation_separation = Vector2i(2, 0)
+0:2/animation_speed = 10.0
+0:2/animation_frame_0/duration = 1.0
+0:2/animation_frame_1/duration = 1.0
+0:2/animation_frame_2/duration = 1.0
+0:2/animation_frame_3/duration = 1.0
+0:2/animation_frame_4/duration = 1.0
+0:2/0 = 0
+1:2/0 = 0
+2:2/animation_separation = Vector2i(2, 0)
+2:2/animation_speed = 10.0
+2:2/animation_frame_0/duration = 1.0
+2:2/animation_frame_1/duration = 1.0
+2:2/animation_frame_2/duration = 1.0
+2:2/animation_frame_3/duration = 1.0
+2:2/animation_frame_4/duration = 1.0
+2:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_n8mhf"]
+sources/0 = SubResource("TileSetAtlasSource_8cdm6")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_feq7x"]
+atlas = ExtResource("2_cph2a")
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_utim2"]
+atlas = ExtResource("2_cph2a")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2mmh0"]
+atlas = ExtResource("2_cph2a")
+region = Rect2(16, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l6blg"]
+atlas = ExtResource("2_cph2a")
+region = Rect2(0, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aa7f2"]
+atlas = ExtResource("2_cph2a")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vkohn"]
+atlas = ExtResource("2_cph2a")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7s4x3"]
+atlas = ExtResource("2_cph2a")
+region = Rect2(16, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_myoya"]
+atlas = ExtResource("2_cph2a")
+region = Rect2(0, 80, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_thutw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_feq7x")
+}],
+"loop": 1,
+"name": &"ECircGreen",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_utim2")
+}],
+"loop": 1,
+"name": &"ECircGrey",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2mmh0")
+}],
+"loop": 1,
+"name": &"OCircGreen",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l6blg")
+}],
+"loop": 1,
+"name": &"OCircGrey",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aa7f2")
+}],
+"loop": 1,
+"name": &"QCircGreen",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vkohn")
+}],
+"loop": 1,
+"name": &"QCircGrey",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7s4x3")
+}],
+"loop": 1,
+"name": &"UCircGreen",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_myoya")
+}],
+"loop": 1,
+"name": &"UCircGrey",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gee14"]
+atlas = ExtResource("3_vimyb")
+region = Rect2(0, 48, 32, 16)
+
+[node name="SlotsOverlay" type="Control" unique_id=1385487077]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_slots")
+
+[node name="Felt" type="ColorRect" parent="." unique_id=663408542]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.18, 0.16, 0.3, 1)
+
+[node name="HudTileMap" type="TileMapLayer" parent="." unique_id=184367546]
+position = Vector2(-207, 32)
+scale = Vector2(4, 4)
+tile_map_data = PackedByteArray("AAAHAAMAAAAAAAAAAAAHAAYAAAAAAAIAAAAHAAQAAAAAAAEAAAAHAAUAAAAAAAEAAAAIAAMAAAABAAAAAAAJAAMAAAABAAAAAAAIAAYAAAABAAIAAAAJAAYAAAABAAIAAAAIAAQAAAABAAEAAAAIAAUAAAABAAEAAAAJAAUAAAABAAEAAAAJAAQAAAABAAEAAAAKAAMAAAACAAAAAAAKAAQAAAACAAEAAAAKAAUAAAACAAEAAAAKAAYAAAACAAIAAAA=")
+tile_set = SubResource("TileSet_n8mhf")
+
+[node name="interactionables" type="Node2D" parent="." unique_id=320147067]
+
+[node name="ACTION1" type="AnimatedSprite2D" parent="interactionables" unique_id=2062218143]
+position = Vector2(119, 320)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_thutw")
+animation = &"QCircGrey"
+
+[node name="ACTION2" type="AnimatedSprite2D" parent="interactionables" unique_id=299814375]
+visible = false
+position = Vector2(350, 320)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_thutw")
+animation = &"ECircGrey"
+
+[node name="SlotsBox" type="VBoxContainer" parent="." unique_id=1178823032]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Reels" type="Control" parent="SlotsBox" unique_id=471052630]
+custom_minimum_size = Vector2(200, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="InfoArea" type="HBoxContainer" parent="SlotsBox" unique_id=614712334]
+layout_mode = 2
+alignment = 1
+
+[node name="HpLabel" type="Label" parent="SlotsBox/InfoArea" unique_id=1144796320]
+layout_mode = 2
+
+[node name="BetLabel" type="Label" parent="SlotsBox/InfoArea" unique_id=216617346]
+layout_mode = 2
+
+[node name="ResultLabel" type="Label" parent="SlotsBox/InfoArea" unique_id=1607251149]
+layout_mode = 2
+
+[node name="ActionHint1" parent="SlotsBox/InfoArea" unique_id=893663058 instance=ExtResource("2_ahnt")]
+layout_mode = 2
+
+[node name="ActionHint2" parent="SlotsBox/InfoArea" unique_id=395667826 instance=ExtResource("2_ahnt")]
+layout_mode = 2
+
+[node name="Controls" type="HBoxContainer" parent="SlotsBox" unique_id=2003239283]
+layout_mode = 2
+alignment = 1
+
+[node name="SpinButton" type="Button" parent="SlotsBox/Controls" unique_id=2106485990]
+layout_mode = 2
+text = "Spin"
+icon = SubResource("AtlasTexture_gee14")

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://foyfni8g8p0b" path="res://scripts/game.gd" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://ix3c38h4e6xy" path="res://scenes/main.tscn" id="2_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://ba17h7td02oef" path="res://scenes/slots_overlay.tscn" id="3_gee14"]
 [ext_resource type="PackedScene" uid="uid://cul7aae1ybwkw" path="res://scenes/table_overlay.tscn" id="3_lnu2h"]
 [ext_resource type="Script" uid="uid://bhf0wsdwhvgr8" path="res://scripts/hp_counter.gd" id="4_hpctr"]
 [ext_resource type="Texture2D" uid="uid://cnquk8l0hw2by" path="res://assets/hud-elements/QEUO-Buttons.png" id="4_p57ef"]
@@ -62,6 +63,9 @@ layout_mode = 2
 size_flags_horizontal = 3
 stretch = true
 
+[node name="SlotsOverlay" parent="HBoxContainer/LeftViewportContainer" unique_id=808383150 instance=ExtResource("3_gee14")]
+layout_mode = 2
+
 [node name="LeftSubViewport" type="SubViewport" parent="HBoxContainer/LeftViewportContainer" unique_id=292961282]
 unique_name_in_owner = true
 handle_input_locally = false
@@ -97,6 +101,10 @@ action2_icon = SubResource("AtlasTexture_i0o6m")
 layout_mode = 2
 size_flags_horizontal = 3
 stretch = true
+
+[node name="SlotsOverlay2" parent="HBoxContainer/RightViewportContainer" unique_id=733348560 instance=ExtResource("3_gee14")]
+layout_mode = 2
+player_id = "p2"
 
 [node name="RightSubViewport" type="SubViewport" parent="HBoxContainer/RightViewportContainer" unique_id=60726112]
 unique_name_in_owner = true

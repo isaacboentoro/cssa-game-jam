@@ -105,7 +105,7 @@ func _fill_hand(container: HBoxContainer, value_label: Label, hand: Array) -> vo
 	var card_offset = 120
 	for card in hand:
 		#var l := Label.new()
-		#l.text = _card_text(card)
+		#l.text = _card_text(cad)
 		#l.add_theme_font_size_override("font_size", 24)
 		#container.add_child(l)
 		#container.move_child(l, 0)
