@@ -22,10 +22,6 @@ Blackjack="*uid://cjglii7apywf"
 PlayerStats="*res://scripts/player_stats.gd"
 Roulette="*res://scripts/roulette.gd"
 
-[debug]
-
-settings/stdout/print_gpu_profile=true
-
 [display]
 
 window/stretch/mode="canvas_items"

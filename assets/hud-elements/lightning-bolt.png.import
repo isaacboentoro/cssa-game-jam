@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5qevvr121o6p"
-path="res://.godot/imported/Card_Y_3.png-9dd3f0a794d52b6b0c48f6a3ed84e5fa.ctex"
+uid="uid://7l2yyr3cv0wb"
+path="res://.godot/imported/lightning-bolt.png-b0d832394f6ebf5fa964a4e15f5018ca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Cards/Yellow/Card_Y_3.png"
-dest_files=["res://.godot/imported/Card_Y_3.png-9dd3f0a794d52b6b0c48f6a3ed84e5fa.ctex"]
+source_file="res://assets/hud-elements/lightning-bolt.png"
+dest_files=["res://.godot/imported/lightning-bolt.png-b0d832394f6ebf5fa964a4e15f5018ca.ctex"]
 
 [params]
 
