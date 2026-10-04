@@ -6,7 +6,6 @@ signal spin_result(number: int, color: String)
 signal round_ended(result: String, payout: float)
 signal table_toggled(opened_by: String)
 
-const BET_PERCENT := 0.1 # fraction of current hp wagered each round
 const RED_NUMBERS := [1, 3, 5, 7, 9, 12, 14, 16, 18, 19, 21, 23, 25, 27, 30, 32, 34, 36]
 const RESULT_DISPLAY_SECONDS := 1.5
 
@@ -55,7 +54,7 @@ func place_bet(type: BetType, number: int = -1) -> void:
 		return
 	bet_type = type
 	bet_number = number
-	bet = PlayerStats.consume_percent(opened_by, BET_PERCENT)
+	bet = PlayerStats.consume_percent(opened_by, PlayerStats.bet_percent)
 	bets_updated.emit()
 	_spin()
 
