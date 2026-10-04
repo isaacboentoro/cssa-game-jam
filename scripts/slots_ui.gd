@@ -81,6 +81,10 @@ func _on_table_toggled(for_player: String, is_open: bool) -> void:
 		return
 	visible = is_open
 	felt.visible = is_open
+	$JACKPOT.visible = false
+	$LOSS.visible = false
+	$PlusMinus.visible = false
+	$JACKPOT/JACKPOT2.visible = false
 	_reset_key_hints()
 
 # Key letters per player, matching table_ui.gd: p1 uses Q/E, p2 uses U/O.
@@ -139,11 +143,29 @@ func _on_round_ended(for_player: String, result: String, payout: float) -> void:
 	if for_player != player_id:
 		return
 	result_label.text = "%s (payout %d)" % [result, round(payout)]
+	$PlusMinus.visible = true
+	if result == "jackpot!":
+		$JACKPOT.visible = true
+		$JACKPOT.play("default")
+		$JACKPOT/JACKPOT2.visible = true
+		$JACKPOT/JACKPOT2.play("default")
+		$JACKPOT/JACKPOT2/JACKPOT2.play("default")
+		$JACKPOT/JACKPOT2/JACKPOT2/JACKPOT2.play("default")
+	if result == "lose":
+		$LOSS.visible = true
+		$LOSS.play("default")
+		$LOSS/LOSS.play("default")
+		$PlusMinus.play("Minus")
+		$PlusMinus/Lightning.play("explodelong")
+	if result == "same number!" or result == "same suit!":
+		$JACKPOT.visible = true
+		$PlusMinus.play("Plus")
+		$PlusMinus/Lightning.play("flashinggreen")
 	_refresh_info()
 
 func _refresh_info() -> void:
-	hp_label.text = "HP: %d" % round(PlayerStats.get_hp(player_id))
-	bet_label.text = "Bet: %d" % round(Slots.get_bet(player_id))
+	return
+
 
 func _on_hp_changed(changed_player_id: String, _hp: float) -> void:
 	if changed_player_id == player_id:
