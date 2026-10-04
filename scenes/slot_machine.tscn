@@ -1,23 +1,31 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://573cec3fn7pe"]
 
-[ext_resource type="Script" path="res://scripts/slots_area.gd" id="1_slotarea"]
+[ext_resource type="Script" uid="uid://d3oknge5ufbj2" path="res://scripts/slots_area.gd" id="1_slotarea"]
+[ext_resource type="Texture2D" uid="uid://ctnq5xxir73ye" path="res://assets/Minigames/Slot_Machine/slots-table.png" id="2_xjw1r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_slotzone"]
 size = Vector2(64, 72)
 
-[node name="SlotMachine" type="Area2D"]
+[node name="SlotMachine" type="Area2D" unique_id=528148376]
 script = ExtResource("1_slotarea")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1016898866]
 shape = SubResource("RectangleShape2D_slotzone")
 
-[node name="Placeholder" type="ColorRect" parent="."]
+[node name="Placeholder" type="ColorRect" parent="." unique_id=477981989]
 offset_left = -12.0
 offset_top = -20.0
 offset_right = 12.0
 offset_bottom = 20.0
 mouse_filter = 2
 color = Color(0.75, 0.2, 0.25, 1)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=396988599]
+offset_left = -33.0
+offset_top = -35.0
+offset_right = 31.0
+offset_bottom = 34.0
+texture = ExtResource("2_xjw1r")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

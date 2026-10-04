@@ -9,11 +9,5 @@ script = ExtResource("1_g2els")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1610348503]
 texture_filter = 1
 scale = Vector2(4, 4)
-<<<<<<< HEAD
 sprite_frames = ExtResource("2_qhqgy")
 animation = &"death"
-=======
-sprite_frames = SubResource("SpriteFrames_7ksya")
-animation = &"dying"
-frame_progress = 0.5032289
->>>>>>> 73dc02e188f1c6334bf8bb30e200c15e086871e8
