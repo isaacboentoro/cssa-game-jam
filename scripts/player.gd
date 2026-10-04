@@ -20,6 +20,7 @@ func _ready() -> void:
 		$AnimatedSprite2D.sprite_frames = load("res://assets/Robots/Green/greenbot.tres")
 
 
+
 func _physics_process(_delta: float) -> void:
 	process_movement()
 	process_animation()
