@@ -177,6 +177,7 @@ size = Vector2(60.4375, 46)
 size = Vector2(59.71875, 32)
 
 [node name="main" type="Control" unique_id=2053701760]
+texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -197,6 +198,7 @@ offset_bottom = 514.0
 texture = ExtResource("1_tbgi4")
 
 [node name="King" type="TextureRect" parent="." unique_id=605143833]
+texture_filter = 1
 layout_mode = 0
 offset_left = -8.0
 offset_top = -72.0
@@ -205,6 +207,7 @@ offset_bottom = -7.0
 texture = ExtResource("2_choun")
 
 [node name="Kid" type="TextureRect" parent="." unique_id=1684501551]
+texture_filter = 1
 layout_mode = 0
 offset_left = 94.0
 offset_top = 74.0
